@@ -342,9 +342,9 @@ done
 	publicip=$(cat temp.txt | grep publicip= | cut -f 2- -d'=')
 	colo=$(cat temp.txt | grep colo= | cut -f 2- -d'=')
 	rm -rf temp.txt
-  time1=$(date "+%Y-%m-%d %H:%M:%S")
-  clear
-  echo 完成时间 $time1
+        Localtime=$(date "+%Y-%m-%d %H:%M:%S")
+        clear
+        echo 完成时间 $Localtime
 	echo $anycast>resolve.txt
 	echo 优选IP $anycast 满足 $bandwidth Mbps带宽需求
 	echo 公网IP $publicip
