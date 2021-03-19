@@ -337,14 +337,13 @@ done
 	endtime=`date +'%Y-%m-%d %H:%M:%S'`
 	start_seconds=$(date --date="$starttime" +%s)
 	end_seconds=$(date --date="$endtime" +%s)
+	Localtime=$(date "+%Y-%m-%d %H:%M:%S")
 	clear
 	curl --ipv4 --resolve service.udpfile.com:443:$anycast --retry 3 -s -X POST -d ''20210315-$anycast-$max'' "https://service.udpfile.com?asn="$asn"&city="$city"" -o temp.txt
 	publicip=$(cat temp.txt | grep publicip= | cut -f 2- -d'=')
 	colo=$(cat temp.txt | grep colo= | cut -f 2- -d'=')
 	rm -rf temp.txt
-        Localtime=$(date "+%Y-%m-%d %H:%M:%S")
-        clear
-        echo 完成时间 $Localtime
+	echo 完成时间 $Localtime
 	echo $anycast>resolve.txt
 	echo 优选IP $anycast 满足 $bandwidth Mbps带宽需求
 	echo 公网IP $publicip
@@ -355,3 +354,4 @@ done
 	echo 峰值速度 $max kB/s
 	echo 数据中心 $colo
 	echo 总计用时 $((end_seconds-start_seconds)) 秒
+	
