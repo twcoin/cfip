@@ -5,3 +5,5 @@
 https://github.com/hbstarjason2021/jd-scripts-docker
 
 https://github.com/badafans
+
+git clone
